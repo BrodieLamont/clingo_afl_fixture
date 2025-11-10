@@ -11,3 +11,6 @@ game(Home, Away) :-
 { round(Round, Home, Away, Time) : game(Home, Away) } = 1 :-
 	Round = 1..rounds,
 	Time = 1..times.
+
+% 2 teams cannot play eachother twice in the same round.
+:- round(Round, Home, Away, Time1), round(Round, Home, Away, Time2), Time1 != Time2.
