@@ -7,3 +7,7 @@ game(Home, Away) :-
 	team(Home,_,_,_),
 	team(Away,_,_,_),
 	Home != Away.
+
+{ round(Round, Home, Away, Time) : game(Home, Away) } = 1 :-
+	Round = 1..rounds,
+	Time = 1..times.
