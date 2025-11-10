@@ -20,3 +20,9 @@ game(Home, Away) :-
 
 % Prevent games against different home teams.
 :- round(Round, Home1, Away, Time1), round(Round, Home2, Away, Time2), Time1 != Time2, Home1 != Home2.
+
+% A team cannot play at home and away in the same round.
+:- round(Round, Home, _, _), round(Round, _, Home,_).
+:- round(Round, _, Away, _), round(Round, Away, _, _).
+
+#show round/4.
