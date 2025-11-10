@@ -14,3 +14,9 @@ game(Home, Away) :-
 
 % 2 teams cannot play eachother twice in the same round.
 :- round(Round, Home, Away, Time1), round(Round, Home, Away, Time2), Time1 != Time2.
+
+% Prevent games against different away teams.
+:- round(Round, Home, Away1, Time1), round(Round, Home, Away2, Time2), Time1 != Time2, Away1 != Away2.
+
+% Prevent games against different home teams.
+:- round(Round, Home1, Away, Time1), round(Round, Home2, Away, Time2), Time1 != Time2, Home1 != Home2.
